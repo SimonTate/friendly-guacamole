@@ -15,7 +15,7 @@ objects := $(subst $(source),$(output),$(objects))
 
 all: $(objects)
 
-$(output)/%.html: $(source)/%.md
+$(output)/%.html: $(source)/%.md $(header) $(footer)
 	mkdir -p $(@D)
 	$(PANDOC) $(^) -o $(@) -H $(header) -H $(footer)
 
